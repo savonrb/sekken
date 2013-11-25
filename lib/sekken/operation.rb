@@ -79,7 +79,7 @@ class Sekken
 
     # Public: Build the request XML for this operation.
     def build
-      Envelope.new(@operation, header, body).to_s
+      @build ||= Envelope.new(@operation, header, body).to_s
     end
 
     # Public: Sets the request envelope XML. Use in place of body().
