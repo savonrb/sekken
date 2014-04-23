@@ -43,7 +43,7 @@ class Sekken
 
       case soap_version
       when '1.1'
-        headers['SOAPAction'] = %{"#{soap_action}"}
+        headers['SOAPAction'] = soap_action.nil? ? '' : %{"#{soap_action}"}
       when '1.2'
         content_type << %{action="#{soap_action}"} if soap_action && !soap_action.empty?
       end
