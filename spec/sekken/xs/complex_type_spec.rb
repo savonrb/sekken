@@ -96,6 +96,42 @@ describe Sekken::XS::ComplexType do
     expect(complex_type.collect_child_elements).to eq(all_elements)
   end
 
+  specify 'complexType/simpleContent (plus annotations)' do
+    base_type = new_complex_type('
+      <complexType name="baseObject">
+        <sequence>
+          <element minOccurs="0" maxOccurs="unbounded" name="ExemptState" nillable="true" type="tns:ExemptState" />
+        </sequence>
+      </complexType>
+    ')
+    schemas = mock('schemas')
+    schemas.expects(:complex_type).with('http://example.com/ons', 'baseObject').returns(base_type)
+
+    complex_type = new_complex_type('
+			<complexType name="Account" xmlns="http://www.w3.org/2001/XMLSchema"
+                                  xmlns:ons="http://example.com/ons"
+                                  xmlns:ens="http://example.com/ens">
+        <xs:annotation>
+          <xs:documentation>
+            Basic type for specifying measures and the system of measurement.
+          </xs:documentation>
+        </xs:annotation>
+
+				<complexContent>
+					<extension base="ons:baseObject">
+						<sequence>
+							<element minOccurs="0" name="The Child Element" nillable="true" type="string" />
+						</sequence>
+					</extension>
+				</complexContent>
+      </complexType>
+    ', schemas)
+
+    children = complex_type.collect_child_elements
+    expect(children.size).to eq(2)
+    expect(children[1].name).to eq('The Child Element')
+  end
+
   specify 'complexType/simpleContent/attribute (plus annotations)' do
     complex_type = new_complex_type('
       <xs:complexType name="MeasureType">

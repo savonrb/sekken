@@ -111,7 +111,7 @@ class Sekken
       attr_reader :type, :ref
 
       def inline_type
-        children.first
+        children.detect{|child| child.node.node_name.downcase != 'annotation' }
       end
 
     end
