@@ -21,8 +21,8 @@ Sekken is still in a very early stage, but [there is some documentation!](http:/
 ## Give back
 
 If you're using Sekken and you or your company is making money from it, then please consider
-donating via [Gittip](https://www.gittip.com/rubiii/) so that I can continue to improve it.
+donating via [Gittip](https://www.gittip.com/tjarratt/) so that I can continue to improve it.
 
-[![donate](donate.png)](https://www.gittip.com/rubiii/)
+[![donate](donate.png)](https://www.gittip.com/tjarratt/)
 
 Donate icon from the [Noun Project](http://thenounproject.com/noun/donate/#icon-No285).
