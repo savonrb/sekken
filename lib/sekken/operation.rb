@@ -8,8 +8,8 @@ class Sekken
     ENCODING = 'UTF-8'
 
     CONTENT_TYPE = {
-      '1.1' => 'text/xml;charset=%s',
-      '1.2' => 'application/soap+xml;charset=%s'
+      '1.1' => 'text/xml',
+      '1.2' => 'application/soap+xml'
     }
 
     def initialize(operation, wsdl, http)
@@ -39,9 +39,16 @@ class Sekken
     def http_headers
       return @http_headers if @http_headers
       headers = {}
+      content_type = [ CONTENT_TYPE[soap_version], "charset=#{encoding}" ]
 
-      headers['SOAPAction']   = %{"#{soap_action}"} if soap_action
-      headers['Content-Type'] = CONTENT_TYPE[soap_version] % encoding
+      case soap_version
+      when '1.1'
+        headers['SOAPAction'] = soap_action.nil? ? '' : %{"#{soap_action}"}
+      when '1.2'
+        content_type << %{action="#{soap_action}"} if soap_action && !soap_action.empty?
+      end
+
+      headers['Content-Type'] = content_type.join(';')
 
       @http_headers = headers
     end

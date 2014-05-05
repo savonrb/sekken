@@ -54,8 +54,7 @@ describe Sekken::Operation do
   describe '#http_headers' do
     it 'returns a Hash of HTTP headers for a SOAP 1.2 operation' do
       expect(operation.http_headers).to eq(
-        'SOAPAction'   => '"http://www.webserviceX.NET/ConvertTemp"',
-        'Content-Type' => 'application/soap+xml;charset=UTF-8'
+        'Content-Type' => 'application/soap+xml;charset=UTF-8;action="http://www.webserviceX.NET/ConvertTemp"'
       )
     end
 
