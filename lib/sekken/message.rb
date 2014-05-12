@@ -58,13 +58,7 @@ class Sekken
         end
         if value.is_a? Hash
           attributes, value = extract_attributes(value)
-          if attributes.empty? && tag[1].nil?
-            t = xml.tag! *tag, {} do |b|
-              build_from_hash(b, value, xml)
-            end
-          else
-            xml.tag! *tag, value[tag[1]], attributes
-          end
+          xml.tag! *tag, value[tag[1]], attributes
         else
           xml.tag! *tag, value
         end
@@ -75,22 +69,6 @@ class Sekken
 
         value.each do |val|
           xml.tag! *tag, val
-        end
-      end
-    end
-
-    # build_from_hash 'foo', {a: {b: c: 123}}, xml
-    #
-    # => <foo><a><b><c>123</c></b></a></foo>
-    #
-    def build_from_hash(key, value, xml)
-      value.each do |k, v|
-        if v.is_a? Hash
-          key.tag!(k) do |nested|
-            build_from_hash(nested, v, xml)
-          end
-        else
-          key.tag! k, v
         end
       end
     end
@@ -121,18 +99,8 @@ class Sekken
         xml.tag! *tag, attributes do |xml|
           build_elements(children, value, xml)
         end
-      elsif value
-        if value.is_a? Hash
-          if attributes.empty? && tag[1].nil?
-            t=xml.tag!(*tag) do |b|
-              build_from_hash(b, value, xml)
-            end
-          else
-            xml.tag! *tag, tag[1] ? value[tag[1]] : value, attributes
-          end
-        else
-          xml.tag! *tag, value
-        end
+      elsif value && value[tag[1]]
+        xml.tag! *tag, value[tag[1]], attributes
       else
         xml.tag! *tag, attributes
       end

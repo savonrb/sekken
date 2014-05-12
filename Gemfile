@@ -24,5 +24,4 @@ end
 
 group :development do
   gem 'fuubar'
-  gem 'pry'
 end
