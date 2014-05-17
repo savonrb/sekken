@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rspec', '~> 2.14'
   s.add_development_dependency 'mocha', '~> 0.14'
   s.add_development_dependency 'equivalent-xml', '~> 0.3'
+  s.add_development_dependency "transpec"
 
   ignores  = File.readlines('.gitignore').grep(/\S+/).map(&:chomp)
   dotfiles = %w[.gitignore .travis.yml .yardopts]
