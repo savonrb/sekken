@@ -2,11 +2,10 @@
 language: "ruby"
 script: "bundle exec rake --trace"
 rvm:
-  - 1.9.2
   - 1.9.3
   - 2.0
   - jruby-head
-  - rbx
+  - rbx-2
 notifications:
   irc: "irc.freenode.org#savon"
 
