@@ -132,7 +132,7 @@ class Sekken
       def collect_child_elements(memo = [])
         if @node['base']
           local, nsid = @node['base'].split(':').reverse
-          namespace = @node.namespaces["xmlns:#{nsid}"]
+          namespace = @node.namespaces["xmlns" + ( nsid ? ":#{nsid}" : "")]
 
           if complex_type = @schemas.complex_type(namespace, local)
             memo += complex_type.elements
