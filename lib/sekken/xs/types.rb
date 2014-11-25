@@ -194,7 +194,7 @@ class Sekken
       def collect_attributes(memo = [])
         if @node['ref']
           local, nsid = @node['ref'].split(':').reverse
-          namespace = @node.namespaces["xmlns:#{nsid}"]
+          namespace = @node.namespaces["xmlns" + ( nsid ? ":#{nsid}" : "")]
 
           attribute_group = @schemas.attribute_group(namespace, local)
           memo += attribute_group.attributes
