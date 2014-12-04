@@ -10,8 +10,10 @@ class Sekken
     def initialize(wsdl, http)
       @documents = WSDL::DocumentCollection.new
       @schemas = XS::SchemaCollection.new
-
-      resolver = Resolver.new(http)
+      
+      base_file_path = File.dirname(wsdl) if File.exists?(wsdl)
+      
+      resolver = Resolver.new(http, base_file_path)
       importer = Importer.new(resolver, @documents, @schemas)
       importer.import(wsdl)
     end
