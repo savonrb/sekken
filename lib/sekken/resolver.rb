@@ -4,7 +4,7 @@ class Sekken
     URL_PATTERN = /^http[s]?:/
     XML_PATTERN = /^</
 
-    def initialize(http, base_file_path=nil)
+    def initialize(http, base_file_path="")
       @http = http
       @base_file_path = base_file_path
     end
@@ -22,5 +22,9 @@ class Sekken
       end
     end
 
+    def can_resolve?(location)
+      (location =~ Resolver::URL_PATTERN) || (File.readable?(location)) || (File.readable?(File.join(@base_file_path, location)))
+    end
+    
   end
 end

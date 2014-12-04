@@ -57,7 +57,7 @@ class Sekken
         schema.imports.each do |namespace, schema_location|
           next unless schema_location
 
-          unless absolute_url? schema_location or File.readable? schema_location
+          unless @resolver.can_resolve? schema_location
             @logger.warn("Skipping XML Schema import #{schema_location.inspect}.")
             next
           end
@@ -67,10 +67,6 @@ class Sekken
           yield(schema_location)
         end
       end
-    end
-
-    def absolute_url?(location)
-      location =~ Resolver::URL_PATTERN
     end
 
   end
