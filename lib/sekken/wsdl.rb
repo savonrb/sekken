@@ -11,7 +11,8 @@ class Sekken
       @documents = WSDL::DocumentCollection.new
       @schemas = XS::SchemaCollection.new
       
-      base_file_path = File.dirname(wsdl) if File.exists?(wsdl)||""
+      base_file_path = ""
+      base_file_path = File.dirname(wsdl) if File.exists?(wsdl)
       
       resolver = Resolver.new(http, base_file_path)
       importer = Importer.new(resolver, @documents, @schemas)
