@@ -40,7 +40,7 @@ class Sekken
         local, namespace = expand_qname(part[:element], part[:namespaces])
         schema = @schemas.find_by_namespace(namespace)
         raise "Unable to find schema for #{namespace.inspect}" unless schema
-
+        
         xs_element = schema.elements.fetch(local)
         type = find_type_for_element(xs_element)
 

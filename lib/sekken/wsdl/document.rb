@@ -38,12 +38,12 @@ class Sekken
 
       def imports
         imports = []
-
+        
         @document.root.xpath('wsdl:import', 'wsdl' => Sekken::NS_WSDL).each do |node|
           location = node['location']
           imports << location if location
         end
-
+        
         imports
       end
 
