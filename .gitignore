@@ -11,3 +11,4 @@ pkg
 .bundle
 Gemfile.lock
 bin/
+.idea
