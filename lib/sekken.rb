@@ -5,7 +5,6 @@ require 'sekken/version'
 require 'sekken/errors'
 require 'sekken/wsdl'
 require 'sekken/operation'
-require 'sekken/httpclient'
 
 class Sekken
 
@@ -17,7 +16,13 @@ class Sekken
 
   # Public: Returns the HTTP adapter to use.
   def self.http_adapter
-    @http_adapter ||= HTTPClient
+    @http_adapter ||= begin
+      require 'sekken/http_adapter/httpclient'
+      HTTPClient
+    rescue LoadError
+      warn 'No http adapter set (see Sekken.http_adapter=) and default adapter (install gem sekken-httpclient) not found.'
+      raise
+    end
   end
 
   # Public: Sets the HTTP adapter to use.

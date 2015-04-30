@@ -33,12 +33,13 @@ Gem::Specification.new do |s|
 
   ignores  = File.readlines('.gitignore').grep(/\S+/).map(&:chomp)
   dotfiles = %w[.gitignore .travis.yml .yardopts]
+  http_adapters = Dir['lib/sekken/http_adapter/*']
 
-  all_files_without_ignores = Dir['**/*'].reject { |f|
-    File.directory?(f) || ignores.any? { |i| File.fnmatch(i, f) }
+  unexcluded_files = Dir['**/*'].reject { |f|
+    File.directory?(f) || ignores.any? { |i| File.fnmatch(i, f) } || http_adapters.any? { |i| File.fnmatch(i, f) }
   }
 
-  s.files = (all_files_without_ignores + dotfiles).sort
+  s.files = (unexcluded_files + dotfiles).sort
 
   s.require_path = 'lib'
 end

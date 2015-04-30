@@ -1,8 +1,8 @@
+require 'sekken/abstract_http_adapter'
 require 'httpclient'
 
 class Sekken
-  class HTTPClient
-
+  class HTTPClient < AbstractHttpAdapter
     def initialize
       @client = ::HTTPClient.new
     end
