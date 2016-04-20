@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
-gemspec
+gemspec name: 'sekken'
+gemspec name: 'sekken-httpclient'
 
 # profiling
 #gem 'method_profiler', require: false

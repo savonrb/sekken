@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'sekken/http_adapter/httpclient'
 
 describe Sekken::HTTPClient do
 
