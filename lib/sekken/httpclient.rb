@@ -4,7 +4,9 @@ class Sekken
   class HTTPClient
 
     def initialize
+      @logger = Logging.logger[self]
       @client = ::HTTPClient.new
+      @client.debug_dev = @logger
     end
 
     # Public: Returns the HTTPClient instance to configure.
