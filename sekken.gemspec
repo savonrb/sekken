@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.license = 'MIT'
 
   # TODO: get rid of Nori.
-  s.add_dependency 'nori',     '~> 2.2.0'
+  s.add_dependency 'nori',     '~> 2.6.0'
 
   s.add_dependency 'nokogiri',   '>= 1.4.0'
   s.add_dependency 'builder',    '>= 3.0.0'
