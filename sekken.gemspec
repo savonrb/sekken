@@ -23,7 +23,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'nokogiri',   '>= 1.4.0'
   s.add_dependency 'builder',    '>= 3.0.0'
   s.add_dependency 'httpclient', '~> 2.3'
-  s.add_dependency 'logging',    '~> 1.8'
+  s.add_dependency 'logging',    '~> 2.0'
 
   s.add_development_dependency 'rake',  '~> 10.1'
   s.add_development_dependency 'rspec', '~> 2.14'
