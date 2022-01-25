@@ -14,7 +14,6 @@ Gem::Specification.new do |s|
   s.description = 'Sekken is an experimental SOAP client for the Ruby community.'
   s.required_ruby_version = '>= 1.9.3'
 
-  s.rubyforge_project = s.name
   s.license = 'MIT'
 
   # TODO: get rid of Nori.
