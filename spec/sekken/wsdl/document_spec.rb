@@ -21,6 +21,10 @@ describe Sekken::WSDL::Document do
         'xmlns:wsdl'    => 'http://schemas.xmlsoap.org/wsdl/',
         'xmlns:xsd'     => 'http://www.w3.org/2001/XMLSchema'
       }
+      # On JRuby, there are more namespaces defined.
+      if defined?(JRUBY_VERSION)
+        namespaces['xmlns:jaxws'] = 'http://java.sun.com/xml/ns/jaxws'
+      end
 
       expect(message.parts).to eq([
         { :name => 'parameters', :namespaces => namespaces,

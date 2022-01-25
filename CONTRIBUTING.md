@@ -17,11 +17,11 @@ let us know how we could make this easier for you. Also, provide code and the WS
 service your working with so others can try to come up with a spec for your problem.
 
 After we have a failing spec, it obviously needs to be fixed. Make sure your new spec is the
-only failing one under the `spec` directory. Travis only runs the "unit tests" at `spec/sekken`,
+only failing one under the `spec` directory. CI only runs the "unit tests" at `spec/sekken`,
 but Sekken actually has with some additional "integration/example specs" at `spec/integration`,
 which you need to run locally to make sure the integration with real world services still works.
 
-Notice that these specs are not run by Travis, because the service's are not guaranteed to work
+Notice that these specs are not run by CI, because the service's are not guaranteed to work
 all the time and the specs will timeout after a few seconds when the service is currently down.
 
 Please follow this basic workflow for pull requests:
@@ -31,7 +31,7 @@ Please follow this basic workflow for pull requests:
 * Add tests for it!
 * Update the [Changelog](https://github.com/savonrb/sekken/blob/master/CHANGELOG.md)
 * [Send a pull request](https://help.github.com/articles/using-pull-requests)
-* [Check that your pull request passes the build](https://travis-ci.org/savonrb/sekken/pull_requests)
+* [Check that your Pull Request passes the build](https://github.com/savonrb/sekken/actions/workflows/ci.yml)
 
 
 **Improvements and feature requests**
