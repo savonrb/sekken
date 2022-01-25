@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'httpclient', '~> 2.3'
   s.add_dependency 'logging',    '~> 1.8'
 
-  s.add_development_dependency 'rake',  '~> 10.1'
+  s.add_development_dependency 'rake',  '~> 12.3'
   s.add_development_dependency 'rspec', '~> 3'
   s.add_development_dependency 'mocha', '~> 0.14'
   s.add_development_dependency 'equivalent-xml', '~> 0.3'
