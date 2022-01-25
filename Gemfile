@@ -15,6 +15,7 @@ if RUBY_VERSION > "3"
   gem "net-smtp", require: false
   gem "net-pop", require: false
   gem "net-imap", require: false
+  gem "rexml"
 end
 
 # dependencies
