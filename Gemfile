@@ -22,7 +22,7 @@ end
 #gem 'rubydeps',  require: false  # uses c extensions
 
 # debugging
-#gem 'debugger',  require: false  # don't install on travis!
+#gem 'debugger',  require: false
 
 group :development do
   gem 'fuubar'
