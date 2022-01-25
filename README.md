@@ -6,9 +6,9 @@ Heavy metal SOAP client
 [Mailing list](https://groups.google.com/forum/#!forum/savonrb) | [Twitter](http://twitter.com/savonrb)
 
 [![Ruby CI](https://github.com/savonrb/sekken/actions/workflows/ci.yml/badge.svg)](https://github.com/savonrb/sekken/actions/workflows/ci.yml)
-[![Gem Version](https://badge.fury.io/rb/sekken.png)](http://badge.fury.io/rb/sekken)
-[![Code Climate](https://codeclimate.com/github/savonrb/sekken.png)](https://codeclimate.com/github/savonrb/sekken)
-[![Coverage Status](https://coveralls.io/repos/savonrb/sekken/badge.png?branch=master)](https://coveralls.io/r/savonrb/sekken)
+[![Gem Version](https://badge.fury.io/rb/sekken.svg)](http://badge.fury.io/rb/sekken)
+[![Code Climate](https://codeclimate.com/github/savonrb/sekken.svg)](https://codeclimate.com/github/savonrb/sekken)
+[![Coverage Status](https://coveralls.io/repos/savonrb/sekken/badge.svg?branch=master)](https://coveralls.io/r/savonrb/sekken)
 
 
 ## Version 3
