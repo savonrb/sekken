@@ -210,7 +210,7 @@ class Sekken
 
       def expand_qname(qname, namespaces)
         local, nsid = split_qname(qname)
-        namespace = namespaces["xmlns:#{nsid}"]
+        namespace = namespaces["xmlns" + ( nsid ? ":#{nsid}" : "")]
 
         [local, namespace]
       end
